@@ -79,10 +79,12 @@ export default function All() {
         <Row style={{ padding: 8 }}>
           {data.map((article, index) => (
             <Col span={6} style={{ justifyContent: "center", padding: 8 }}>
-              <Card hoverable key={index} cover={<img alt="example" src={article.urlToImage} style={{ width: "100%", height: "40vh" }} />}>
-                <Meta title={article.title} description={article.description} />
-                <Link to={`/article/${article.title}`}>Detail</Link>
-              </Card>
+              <Link to={`/article/${article.title}`}>
+                <Card hoverable key={index} cover={<img alt="example" src={article.urlToImage} style={{ width: "100%", height: "40vh" }} />}>
+                  <Meta title={article.title} />
+                  <p>Author : {article.author ?? "No Author"}</p>
+                </Card>
+              </Link>
             </Col>
           ))}
         </Row>
